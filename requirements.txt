@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pandas
+chromadb
+google-genai
+openpyxl
+pydantic
+python-multipart
