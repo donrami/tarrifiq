@@ -3,7 +3,7 @@ import os
 import json
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv("app.env")
 
 # Add the parent directory so we can import pipeline modules
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -27,9 +27,11 @@ except Exception:
 
 app = FastAPI(title="HS Code Classification API", version="1.0.0")
 
+frontend_url = os.environ.get("FRONTEND_URL", "*")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[frontend_url] if frontend_url != "*" else ["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
