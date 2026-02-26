@@ -363,6 +363,7 @@ export default function App() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number; value?: string; action: 'copy' | 'reset-layout'; openedAt: number } | null>(null);
   const gridApiRef = useRef<any>(null);
   const searchAbortRef = useRef<AbortController | null>(null);
@@ -750,9 +751,7 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        SaHS · Powered by Gemini + ChromaDB ·
-        <button onClick={() => setShowDisclaimer(true)} className="footer-link-btn">Disclaimer</button> ·
-        <a href={`${API_BASE}/docs/`} target="_blank" rel="noopener noreferrer" className="footer-link-btn">API Docs</a>
+        SaHS · Powered by Gemini + ChromaDB ‎ · <button onClick={() => setShowDisclaimer(true)} className="footer-link-btn">Disclaimer</button> · <button onClick={() => setShowPrivacyPolicy(true)} className="footer-link-btn">Privacy Policy</button> · <a href={`${API_BASE}/docs/`} target="_blank" rel="noopener noreferrer" className="footer-link-btn">API</a> ·
         <a
           href="https://github.com/donrami/SaHS"
           target="_blank"
@@ -790,6 +789,37 @@ export default function App() {
             </p>
             <div style={{ marginTop: '24px', textAlign: 'right' }}>
               <button className="btn btn-primary" onClick={() => setShowDisclaimer(false)}>I Understand</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Privacy Policy Overlay */}
+      {showPrivacyPolicy && (
+        <div className="modal-overlay" onClick={() => setShowPrivacyPolicy(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="card-header" style={{ marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h2 className="card-title"><AlertCircle size={16} /> Privacy Policy</h2>
+              <button className="btn btn-icon" onClick={() => setShowPrivacyPolicy(false)} aria-label="Close modal">
+                <span style={{ fontSize: '20px', lineHeight: 1 }}>&times;</span>
+              </button>
+            </div>
+            <div style={{ fontSize: '13px', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
+              <p style={{ marginBottom: '12px' }}>
+                <strong>Data Collection:</strong> This website does not collect, store, or process any personal user data. All classification and search operations are performed in real-time and are not retained after the session ends.
+              </p>
+              <p style={{ marginBottom: '12px' }}>
+                <strong>Analytics:</strong> We use Vercel Analytics which may collect anonymized usage data. This data is used solely for improving website performance and user experience.
+              </p>
+              <p style={{ marginBottom: '12px' }}>
+                <strong>API Usage:</strong> Search and classification queries are processed through our backend API. The tool uses Gemini embeddings and ChromaDB for vector search, with no personal data transmitted to external AI services.
+              </p>
+              <p>
+                <strong>Contact:</strong> For any privacy concerns, please contact us through GitHub.
+              </p>
+            </div>
+            <div style={{ marginTop: '24px', textAlign: 'right' }}>
+              <button className="btn btn-primary" onClick={() => setShowPrivacyPolicy(false)}>Close</button>
             </div>
           </div>
         </div>

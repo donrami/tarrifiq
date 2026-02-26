@@ -7,7 +7,7 @@
 
 /* Announcement Ribbon */
 .api-announcement-bar {
-  background: linear-gradient(90deg, #0969da, #0550ae);
+  background: linear-gradient(#4f8c23, #238322);
   color: #ffffff;
   padding: 6px 12px;
   font-size: 12px;
@@ -34,7 +34,7 @@
 }
 
 :root.theme-light .api-announcement-bar {
-  background: linear-gradient(90deg, #0969da, #0550ae);
+  background: linear-gradient(#4f8c23, #238322);
 }
 
 /* Header */
