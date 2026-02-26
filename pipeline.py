@@ -2,7 +2,9 @@ import os
 import re
 from dotenv import load_dotenv
 
-load_dotenv("app.env")
+# Load environment variables from the project root
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+load_dotenv(os.path.join(ROOT_DIR, "app.env"))
 import json
 import pandas as pd
 import chromadb

@@ -535,6 +535,12 @@ export default function App() {
 
   return (
     <div className="app">
+      {/* Announcement Ribbon */}
+      <div className="api-announcement-bar">
+        <span>SaHS Open API is now available!</span>
+        <a href={`${API_BASE}/docs/`} target="_blank" rel="noopener noreferrer">Explore Docs</a>
+      </div>
+
       {/* Header */}
       <header className="header">
         <div className="header-inner">
@@ -744,7 +750,9 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        SaHS · Powered by Gemini + ChromaDB · <button onClick={() => setShowDisclaimer(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', textDecoration: 'underline', padding: 0, font: 'inherit' }}>Disclaimer</button>
+        SaHS · Powered by Gemini + ChromaDB ·
+        <button onClick={() => setShowDisclaimer(true)} className="footer-link-btn">Disclaimer</button> ·
+        <a href={`${API_BASE}/docs/`} target="_blank" rel="noopener noreferrer" className="footer-link-btn">API Docs</a>
         <a
           href="https://github.com/donrami/SaHS"
           target="_blank"
