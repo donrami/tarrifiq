@@ -64,6 +64,12 @@ SaHS is a Harmonized System (HS) Code Classification and Search Engine tailored 
    npm run dev
    ```
 
+## Usage
+
+- Navigate to the frontend URL to use the interactive application.
+- Use the Search bar to semantically find HS Codes.
+- Upload an Invoice CSV to map the entire document to the correct HS Codes.
+
 ## Developer Tools & API
 
 SaHS now provides an **Open API** for external integrations.
@@ -71,12 +77,6 @@ SaHS now provides an **Open API** for external integrations.
 - **Production API**: `https://sahs-c7oy.onrender.com:8000`
 - **Documentation**: [Swagger UI](https://sahs-c7oy.onrender.com/docs)  
 - **API Guide**: See [README_API.md](README_API.md) for detailed implementation instructions and cURL examples.
-
-## Usage
-
-- Navigate to the frontend URL to use the interactive application.
-- Use the Search bar to semantically find HS Codes.
-- Upload an Invoice CSV to map the entire document to the correct HS Codes.
 
 ## License
 This project is licensed under the [GNU Affero General Public License v3.0 (AGPLv3)](LICENSE).
